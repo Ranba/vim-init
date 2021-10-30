@@ -53,6 +53,9 @@ Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 " Diff 增强，支持 histogram / patience 等更科学的 diff 算法
 Plug 'chrisbra/vim-diff-enhanced'
 
+" 安装vimwiki
+Plug 'vimwiki/vimwiki'
+
 
 "----------------------------------------------------------------------
 " Dirvish 设置：自动排序并隐藏文件，同时定位到相关文件
@@ -311,10 +314,13 @@ if index(g:bundle_group, 'nerdtree') >= 0
 	let g:NERDTreeMinimalUI = 1
 	let g:NERDTreeDirArrows = 1
 	let g:NERDTreeHijackNetrw = 0
+	let g:NERDTreeShowHidden = 1
 	noremap <space>nn :NERDTree<cr>
 	noremap <space>no :NERDTreeFocus<cr>
 	noremap <space>nm :NERDTreeMirror<cr>
 	noremap <space>nt :NERDTreeToggle<cr>
+	autocmd vimenter * NERDTree
+	autocmd bufenter * if(winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endif
 
 

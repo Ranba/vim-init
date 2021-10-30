@@ -41,6 +41,22 @@ set ttimeoutlen=50
 " 显示光标位置
 set ruler
 
+" 使用mswin操作，可以使用CTRL+C和CTRL+V操作
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+"----------------------------------------------------------------------
+" Gvim设置
+"----------------------------------------------------------------------
+if has("gui_running")
+"au GUIEnter * simalt ~x " 窗口启动时自动最大化
+set guioptions-=m " 隐藏菜单栏
+set guioptions-=T " 隐藏工具栏
+set guioptions-=L " 隐藏左侧滚动条
+set guioptions-=r " 隐藏右侧滚动条
+set guioptions-=b " 隐藏底部滚动条
+"set showtabline=0 " 隐藏Tab栏
+endif
 
 "----------------------------------------------------------------------
 " 搜索设置
